@@ -36,8 +36,8 @@ TP1/
     └── resources/          config.txt, config.xml
 ```
 
-![Arborescence du projet]<img width="492" height="572" alt="Capture d&#39;écran 2026-10-12 123437" src="https://github.com/user-attachments/assets/7ba75c9c-1d84-4d57-be02-9ab175aec418" />
-
+<img width="492" height="572" alt="Capture d&#39;écran 2026-10-12 123437" src="https://github.com/user-attachments/assets/7ba75c9c-1d84-4d57-be02-9ab175aec418" />
+[Arborescence du projet]
 
 ---
 
@@ -64,8 +64,9 @@ Trois dépendances Spring sont ajoutées au `pom.xml` : **spring-core**, **sprin
     </dependency>
 </dependencies>
 ```
+<img width="618" height="532" alt="Capture d&#39;écran 2026-10-12 120952" src="https://github.com/user-attachments/assets/131315fe-def3-42ec-818e-6656b70f9dac" />
 
-![pom.xml](images/02-pom-dependances.png)
+[pom.xml]
 
 > Après modification du `pom.xml`, il faut recharger Maven (**Reload All Maven Projects**) pour télécharger les dépendances.
 
@@ -85,7 +86,8 @@ public interface IDao {
 }
 ```
 
-![IDao](images/03-idao.png)
+<img width="1183" height="312" alt="Capture d&#39;écran 2026-10-12 115155" src="https://github.com/user-attachments/assets/4e1e2cf1-3b4a-4edf-92dc-570d5b11802d" />
+![IDao]
 
 **`DaoIMP`** : implémentation qui simule un accès aux données et retourne `3`.
 
@@ -100,7 +102,9 @@ public class DaoIMP implements IDao {
 }
 ```
 
-![DaoIMP](images/04-daoimp.png)
+<img width="1370" height="496" alt="Capture d&#39;écran 2026-10-12 115232" src="https://github.com/user-attachments/assets/a313567f-ab4c-4652-98d7-8118f7f83a08" />
+
+![DaoIMP]
 
 ### 4.2 Package `metier`
 
