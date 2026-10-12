@@ -64,6 +64,7 @@ Trois dépendances Spring sont ajoutées au `pom.xml` : **spring-core**, **sprin
     </dependency>
 </dependencies>
 ```
+
 <img width="618" height="532" alt="Capture d&#39;écran 2026-10-12 120952" src="https://github.com/user-attachments/assets/131315fe-def3-42ec-818e-6656b70f9dac" />
 
 [pom.xml]
@@ -87,7 +88,9 @@ public interface IDao {
 ```
 
 <img width="1183" height="312" alt="Capture d&#39;écran 2026-10-12 115155" src="https://github.com/user-attachments/assets/4e1e2cf1-3b4a-4edf-92dc-570d5b11802d" />
+
 ![IDao]
+
 
 **`DaoIMP`** : implémentation qui simule un accès aux données et retourne `3`.
 
@@ -118,7 +121,9 @@ public interface IMetier {
 }
 ```
 
-![IMetier](images/05-imetier.png)
+<img width="1347" height="556" alt="Capture d&#39;écran 2026-10-12 115245" src="https://github.com/user-attachments/assets/4e8a754c-fbab-49bd-a44b-ec0e36a38414" />
+
+![IMetier]
 
 **`MetierIMP`** : dépend de l'**interface** `IDao` (jamais de `DaoIMP`). La dépendance lui est fournie par le setter `setDao`. Le calcul multiplie la valeur du DAO par 7.
 
@@ -144,10 +149,12 @@ public class MetierIMP implements IMetier {
 }
 ```
 
-![MetierIMP](images/06-metierimp.png)
+
+<img width="1182" height="620" alt="Capture d&#39;écran 2026-10-12 115310" src="https://github.com/user-attachments/assets/baf1d3aa-789c-438a-aded-062f197111c9" />
+
+![MetierIMP]
 
 **Résultat attendu pour toutes les activités :** `3 × 7 = 21.0`
-
 ---
 
 ## 5. Activité 1-1 : instanciation statique
@@ -174,11 +181,14 @@ public class PresentationStatique {
 }
 ```
 
-![PresentationStatique](images/07-presentation-statique.png)
+<img width="1053" height="591" alt="Capture d&#39;écran 2026-10-12 115331" src="https://github.com/user-attachments/assets/2ba588ea-77e0-4db7-a716-91f777702364" />
 
+![PresentationStatique]
 **Exécution :**
 
-![Résultat statique](images/08-resultat-statique.png)
+<img width="1865" height="302" alt="Capture d&#39;écran 2026-10-12 115504" src="https://github.com/user-attachments/assets/f3e67e1b-e74c-490a-8b4a-394eb9e0ec1a" />
+
+![Résultat statique]
 
 **À retenir :**
 - Il y a **couplage faible** entre `MetierIMP` et `DaoIMP` : le métier ne connaît que l'interface `IDao`.
@@ -198,11 +208,15 @@ dao.DaoIMP
 metier.MetierIMP
 ```
 
-![config.txt](images/09-config-txt.png)
+<img width="1326" height="452" alt="Capture d&#39;écran 2026-10-12 115616" src="https://github.com/user-attachments/assets/6d29a960-f648-4c13-a33c-eaab289a6701" />
+
+![config.txt]
 
 **`PresentationDynamique`** :
 
-![PresentationDynamique](images/10-presentation-dynamique.png)
+<img width="1192" height="817" alt="Capture d&#39;écran 2026-10-12 115720" src="https://github.com/user-attachments/assets/d4c87889-92cb-40bc-8ec9-b81c52fedfef" />
+
+![PresentationDynamique]
 
 Les étapes du programme :
 1. Lire `config.txt` depuis le classpath avec `getResourceAsStream`.
@@ -213,13 +227,20 @@ Les étapes du programme :
 
 **Exécution :**
 
-![Résultat dynamique](images/11-resultat-dynamique.png)
+<img width="1052" height="355" alt="Capture d&#39;écran 2026-10-12 115809" src="https://github.com/user-attachments/assets/8eaf97e1-8cf6-4159-aeaf-851a0aca0931" />
 
-| Avantages | Limites |
+![Résultat dynamique]
+
+**Avantages**
 |---|---|
-| Aucune recompilation pour changer d'implémentation | Code de réflexion lourd et verbeux |
-| Classes concrètes absentes du code de présentation | Erreurs détectées à l'exécution et non à la compilation |
-| Application extensible | Configuration rudimentaire (ordre des lignes, pas de cycle de vie) |
+ Aucune recompilation pour changer d'implémentation 
+ Classes concrètes absentes du code de présentation 
+ Application extensible 
+ **Limites**
+ |---|---|
+ Code de réflexion lourd et verbeux 
+  Erreurs détectées à l'exécution et non à la compilation 
+ Configuration rudimentaire (ordre des lignes, pas de cycle de vie) 
 
 > `config.txt` doit se trouver dans `src/main/resources`, sinon `getResourceAsStream` retourne `null`.
 
@@ -250,7 +271,8 @@ Les étapes du programme :
 
 **Exécution :**
 
-![Résultat Spring XML](images/12-resultat-spring-xml.png)
+<img width="1877" height="503" alt="Capture d&#39;écran 2026-10-12 122932" src="https://github.com/user-attachments/assets/5ee0c5c8-3dc1-49ff-b265-83788e304eb7" />
+![Résultat Spring XML]
 
 **Différence avec l'activité 1-2 :** le câblage des dépendances n'est plus écrit à la main avec la réflexion, il est **déclaré** dans le XML et géré par Spring (singletons, cycle de vie, messages d'erreur clairs).
 
@@ -278,7 +300,8 @@ System.out.println(metier.calcul());
 
 **Exécution :**
 
-![Résultat annotations](images/13-resultat-annotations.png)
+<img width="1842" height="716" alt="Capture d&#39;écran 2026-10-12 123417" src="https://github.com/user-attachments/assets/d2fecfa4-adf8-4cda-ad5d-f7b6ff1ceedd" />
+![Résultat annotations]
 
 **Comment Spring procède :**
 1. Il scanne les packages `dao` et `metier`.
