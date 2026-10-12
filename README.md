@@ -1,10 +1,12 @@
-## COMPTE RENDU
+# COMPTE RENDU – TP1
 
-TP1 – Injection de dépendances Couplage faible, Inversion de Contrôle (IoC) et framework Spring
+## Informations générales
 
+- **Nom et prénom :** Hanen Akermi
+- **Date :** 12/10/2026
+- **Sujet :** TP1 – Injection de dépendances, couplage faible, inversion de contrôle (IoC) et framework Spring
 ---
-**Nom et Prénom : Hanen Akermi**
-**Date : 12/10/2026**
+
 
 
 
