@@ -2,8 +2,6 @@
 
 TP1 – Injection de dépendances Couplage faible, Inversion de Contrôle (IoC) et framework Spring
 **Matière :	Architecture MicroServices**
-**Filière	 : MPSRCC1**
-**Nom et prénom : Hanen Akermi**
 **Date : 12/10/2026**
 
 
@@ -234,12 +232,13 @@ Les étapes du programme :
                       [Résultat dynamique]
 
 **Avantages**
-|---|---|
+
+---
  1. Aucune recompilation pour changer d'implémentation 
  2. Classes concrètes absentes du code de présentation 
  3. Application extensible 
  **Limites**
- |---|---|
+ ---
  1. Code de réflexion lourd et verbeux 
  2. Erreurs détectées à l'exécution et non à la compilation 
  3. Configuration rudimentaire (ordre des lignes, pas de cycle de vie) 
