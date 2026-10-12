@@ -1,16 +1,18 @@
 ## COMPTE RENDU
 
 TP1 – Injection de dépendances Couplage faible, Inversion de Contrôle (IoC) et framework Spring
-
+**Matière :	Architecture MicroServices**
+**Filière	 : MPSRCC1**
 **Nom et prénom : Hanen Akermi**
 **Date : 12/10/2026**
+
 
 
 ## 1. Objectif du TP
 
 Ce TP explore le **couplage faible** et le principe d'**Inversion de Contrôle (IoC)** à travers quatre approches d'injection de dépendances, de la plus manuelle à la plus automatisée :
-
 | Activité | Approche | Qui crée et relie les objets ? |
+|---|---|---|
 | 1-1 | Instanciation statique (`new`) | Le programmeur, dans la classe de présentation |
 | 1-2 | Instanciation dynamique (`Class.forName`) | Le code de réflexion, d'après `config.txt` |
 | 1-3 | Spring avec XML | Le conteneur Spring, d'après `config.xml` |
@@ -37,7 +39,7 @@ TP1/
 ```
 
 <img width="492" height="572" alt="Capture d&#39;écran 2026-10-12 123437" src="https://github.com/user-attachments/assets/7ba75c9c-1d84-4d57-be02-9ab175aec418" />
-[Arborescence du projet]
+                       [Arborescence du projet]
 
 ---
 
@@ -67,7 +69,7 @@ Trois dépendances Spring sont ajoutées au `pom.xml` : **spring-core**, **sprin
 
 <img width="618" height="532" alt="Capture d&#39;écran 2026-10-12 120952" src="https://github.com/user-attachments/assets/131315fe-def3-42ec-818e-6656b70f9dac" />
 
-[pom.xml]
+                              [pom.xml]
 
 > Après modification du `pom.xml`, il faut recharger Maven (**Reload All Maven Projects**) pour télécharger les dépendances.
 
@@ -89,7 +91,7 @@ public interface IDao {
 
 <img width="1183" height="312" alt="Capture d&#39;écran 2026-10-12 115155" src="https://github.com/user-attachments/assets/4e1e2cf1-3b4a-4edf-92dc-570d5b11802d" />
 
-![IDao]
+                                  [IDao]
 
 
 **`DaoIMP`** : implémentation qui simule un accès aux données et retourne `3`.
@@ -107,7 +109,7 @@ public class DaoIMP implements IDao {
 
 <img width="1370" height="496" alt="Capture d&#39;écran 2026-10-12 115232" src="https://github.com/user-attachments/assets/a313567f-ab4c-4652-98d7-8118f7f83a08" />
 
-![DaoIMP]
+                              [DaoIMP]
 
 ### 4.2 Package `metier`
 
@@ -123,7 +125,7 @@ public interface IMetier {
 
 <img width="1347" height="556" alt="Capture d&#39;écran 2026-10-12 115245" src="https://github.com/user-attachments/assets/4e8a754c-fbab-49bd-a44b-ec0e36a38414" />
 
-![IMetier]
+                              [IMetier]
 
 **`MetierIMP`** : dépend de l'**interface** `IDao` (jamais de `DaoIMP`). La dépendance lui est fournie par le setter `setDao`. Le calcul multiplie la valeur du DAO par 7.
 
@@ -152,7 +154,7 @@ public class MetierIMP implements IMetier {
 
 <img width="1182" height="620" alt="Capture d&#39;écran 2026-10-12 115310" src="https://github.com/user-attachments/assets/baf1d3aa-789c-438a-aded-062f197111c9" />
 
-![MetierIMP]
+                               [MetierIMP]
 
 **Résultat attendu pour toutes les activités :** `3 × 7 = 21.0`
 ---
@@ -183,12 +185,12 @@ public class PresentationStatique {
 
 <img width="1053" height="591" alt="Capture d&#39;écran 2026-10-12 115331" src="https://github.com/user-attachments/assets/2ba588ea-77e0-4db7-a716-91f777702364" />
 
-![PresentationStatique]
+                        [PresentationStatique]
 **Exécution :**
 
 <img width="1865" height="302" alt="Capture d&#39;écran 2026-10-12 115504" src="https://github.com/user-attachments/assets/f3e67e1b-e74c-490a-8b4a-394eb9e0ec1a" />
 
-![Résultat statique]
+                        [Résultat statique]
 
 **À retenir :**
 - Il y a **couplage faible** entre `MetierIMP` et `DaoIMP` : le métier ne connaît que l'interface `IDao`.
@@ -210,13 +212,13 @@ metier.MetierIMP
 
 <img width="1326" height="452" alt="Capture d&#39;écran 2026-10-12 115616" src="https://github.com/user-attachments/assets/6d29a960-f648-4c13-a33c-eaab289a6701" />
 
-![config.txt]
+                           [config.txt]
 
 **`PresentationDynamique`** :
 
 <img width="1192" height="817" alt="Capture d&#39;écran 2026-10-12 115720" src="https://github.com/user-attachments/assets/d4c87889-92cb-40bc-8ec9-b81c52fedfef" />
 
-![PresentationDynamique]
+                      [PresentationDynamique]
 
 Les étapes du programme :
 1. Lire `config.txt` depuis le classpath avec `getResourceAsStream`.
@@ -229,18 +231,18 @@ Les étapes du programme :
 
 <img width="1052" height="355" alt="Capture d&#39;écran 2026-10-12 115809" src="https://github.com/user-attachments/assets/8eaf97e1-8cf6-4159-aeaf-851a0aca0931" />
 
-![Résultat dynamique]
+                      [Résultat dynamique]
 
 **Avantages**
 |---|---|
- Aucune recompilation pour changer d'implémentation 
- Classes concrètes absentes du code de présentation 
- Application extensible 
+ 1. Aucune recompilation pour changer d'implémentation 
+ 2. Classes concrètes absentes du code de présentation 
+ 3. Application extensible 
  **Limites**
  |---|---|
- Code de réflexion lourd et verbeux 
-  Erreurs détectées à l'exécution et non à la compilation 
- Configuration rudimentaire (ordre des lignes, pas de cycle de vie) 
+ 1. Code de réflexion lourd et verbeux 
+ 2. Erreurs détectées à l'exécution et non à la compilation 
+ 3. Configuration rudimentaire (ordre des lignes, pas de cycle de vie) 
 
 > `config.txt` doit se trouver dans `src/main/resources`, sinon `getResourceAsStream` retourne `null`.
 
@@ -271,8 +273,9 @@ Les étapes du programme :
 
 **Exécution :**
 
-<img width="1877" height="503" alt="Capture d&#39;écran 2026-10-12 122932" src="https://github.com/user-attachments/assets/5ee0c5c8-3dc1-49ff-b265-83788e304eb7" />
-![Résultat Spring XML]
+<img width="1893" height="720" alt="Capture d&#39;écran 2026-10-12 123214" src="https://github.com/user-attachments/assets/9355c5fb-3931-49c2-8eb1-78dc613a7aa0" />
+
+                         [Résultat Spring XML]
 
 **Différence avec l'activité 1-2 :** le câblage des dépendances n'est plus écrit à la main avec la réflexion, il est **déclaré** dans le XML et géré par Spring (singletons, cycle de vie, messages d'erreur clairs).
 
@@ -301,7 +304,7 @@ System.out.println(metier.calcul());
 **Exécution :**
 
 <img width="1842" height="716" alt="Capture d&#39;écran 2026-10-12 123417" src="https://github.com/user-attachments/assets/d2fecfa4-adf8-4cda-ad5d-f7b6ff1ceedd" />
-![Résultat annotations]
+                      [Résultat annotations]
 
 **Comment Spring procède :**
 1. Il scanne les packages `dao` et `metier`.
