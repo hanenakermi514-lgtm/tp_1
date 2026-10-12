@@ -1,4 +1,4 @@
-## COMPTE RENDU
+<img width="492" height="572" alt="Capture d&#39;écran 2026-10-12 123437" src="https://github.com/user-attachments/assets/546cdae6-dee3-44f7-a2ce-c2f49783b8a3" />## COMPTE RENDU
 
 TP1 – Injection de dépendances Couplage faible, Inversion de Contrôle (IoC) et framework Spring
 
@@ -36,7 +36,8 @@ TP1/
     └── resources/          config.txt, config.xml
 ```
 
-![Arborescence du projet](images/01-arborescence.png)
+![Arborescence du projet]<img width="492" height="572" alt="Capture d&#39;écran 2026-10-12 123437" src="https://github.com/user-attachments/assets/7ba75c9c-1d84-4d57-be02-9ab175aec418" />
+
 
 ---
 
