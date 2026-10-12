@@ -1,11 +1,9 @@
-COMPTE RENDU
-TP1 – Injection de dépendances
-Couplage faible, Inversion de Contrôle (IoC) et framework Spring
-Projet Maven : TP1 (IntelliJ IDEA)
-Packages : presentation, metier, dao
-Technologies : Java, Maven, Spring 6.1.14
-Nom et prénom : Hanen Akermi
-Date : 12/10/2026
+## COMPTE RENDU
+
+TP1 – Injection de dépendances Couplage faible, Inversion de Contrôle (IoC) et framework Spring
+
+**Nom et prénom : Hanen Akermi**
+**Date : 12/10/2026**
 
 
 ## 1. Objectif du TP
